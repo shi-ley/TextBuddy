@@ -72,16 +72,16 @@ public class TextBuddy2
 		
 		String userCommand = getUserCommand(userInput);
 		String inputContent = getUserInputContent(userInput);
-		
+		String outputMessage = "";
 		Commands commandType = determineCommandType(userCommand);
 		// Switch case statements to perform various tasks like Add, Delete, Display, Clear and Exit
 		switch (commandType) {
 			case ADD:// Method call to add data to the file
-				addData(inputContent);
+				outputMessage = addData(inputContent);
 			break;
 		
 			case DISPLAY:// Method call to display the data in the file
-				displayData();
+				outputMessage = displayData();
 			break;
 		
 			case DELETE:// Method call to delete the specified data
@@ -99,7 +99,7 @@ public class TextBuddy2
 				System.out.println("Invalid Command Type.");//if Command is not recognized
 				break;
 		}
-		return "1. a red hat";
+		return outputMessage;
 			
 	}
 	
@@ -144,20 +144,31 @@ public class TextBuddy2
 
 	
 	
-	private static void addData(String inputContent)
+	private static String addData(String inputContent)
 	{
 		s.add(inputContent);
 		displayMessage(String.format(MESSAGE_ADD, FILENAME, inputContent));
+		return String.format(MESSAGE_ADD, FILENAME, inputContent);
 	}
 	
-	private static void displayData()
+	private static String displayData()
 	{
+		String results = "";
 		if(s.isEmpty())
 			displayMessage(String.format(MESSAGE_EMPTY_LIST, FILENAME));		
-		else
-			{for(int i = 0; i < s.size(); i++)
+		else{
+			for(int i = 0; i < s.size(); i++){
 				System.out.println((i + 1) + ". "+ s.get(i));
+				if ( i == 0 ){
+					results = results.concat((i + 1) + ". "+ s.get(i));
+				}
+				else{
+					results = results.concat("\n"+(i + 1) + ". "+ s.get(i));
+
+				}
+				}
 			}
+		return results;
 	}
 	
 	private static void clearData()
