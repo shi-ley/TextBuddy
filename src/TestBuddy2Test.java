@@ -10,6 +10,8 @@ public class TestBuddy2Test {
 		
 		TextBuddy2.processInputData("add a red hat");
 		testOneCommand("display all the currently stored input", "1. a red hat", "display");
+		TextBuddy2.processInputData("add a blue hat");
+		testOneCommand("display all the currently stored input", "1. a red hat\n2. a blue hat", "display");
 		
 			}
 	
