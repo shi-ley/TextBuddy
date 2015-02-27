@@ -68,7 +68,7 @@ public class TextBuddy2
 		return sc.nextLine();
 	}
 	
-	public static void processInputData(String userInput){
+	public static String processInputData(String userInput){
 		
 		String userCommand = getUserCommand(userInput);
 		String inputContent = getUserInputContent(userInput);
@@ -99,6 +99,7 @@ public class TextBuddy2
 				System.out.println("Invalid Command Type.");//if Command is not recognized
 				break;
 		}
+		return "1. a red hat";
 			
 	}
 	

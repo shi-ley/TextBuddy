@@ -8,7 +8,7 @@ public class TestBuddy2Test {
 	@Test
 	public void testExecuteCommand() {
 		
-		
+		TextBuddy2.processInputData("add a red hat");
 		testOneCommand("display all the currently stored input", "1. a red hat", "display");
 		
 			}
