@@ -68,7 +68,7 @@ public class TextBuddy2
 		return sc.nextLine();
 	}
 	
-	private static void processInputData(String userInput){
+	public static void processInputData(String userInput){
 		
 		String userCommand = getUserCommand(userInput);
 		String inputContent = getUserInputContent(userInput);
@@ -94,16 +94,7 @@ public class TextBuddy2
 		
 			case EXIT:// Method call to exit from the Application
 				System.exit(0);
-			break;
-			
-			case SORT:// Method call to sort the specified data
-				sortData();
-			break;
-			
-			case SEARCH:// Method call to sort the specified data
-				searchData(inputContent);
-			break;
-			
+			break;	
 			default:
 				System.out.println("Invalid Command Type.");//if Command is not recognized
 				break;
@@ -181,27 +172,7 @@ public class TextBuddy2
 		s.remove(num - 1);
 	}
 	
-	private static void sortData(){
-		Collections.sort(s);
-	}
 	
-	private static void searchData(String inputContent){
-		displayMessage(MESSAGE_SEARCH);
-		boolean KeyWordNotFound = false;
-		boolean KeyWordisFound = false;
-		{for(int i = 0; i < s.size(); i++)
-			if(s.get(i).contains(inputContent)){
-				System.out.println((i + 1) + ". "+ s.get(i));
-				KeyWordisFound = true;
-			}	
-			else {
-				KeyWordNotFound = true;	
-			}
-		}
-		if(KeyWordNotFound&&!KeyWordisFound){
-			System.out.println("Key word not found!");	
-		}
-	}
 }
 
 	

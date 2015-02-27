@@ -9,7 +9,7 @@ public class TestBuddy2Test {
 	public void testExecuteCommand() {
 		
 		
-		testOneCommand("display all the currently stored input", "a red hat", "display");
+		testOneCommand("display all the currently stored input", "1. a red hat", "display");
 		
 			}
 	
